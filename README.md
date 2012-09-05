@@ -1,3 +1,5 @@
+![Preview](https://dl.dropbox.com/u/732128/vim-screenshot.png)
+
 # Instalation
 
 1. `git clone https://github.com/reu/vimfiles ~/.vim`
