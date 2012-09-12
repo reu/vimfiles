@@ -68,25 +68,43 @@ filetype plugin indent on
 " turn on syntax highlighting
 syntax on
 
-if has('gui_macvim')
-  " MacVim
-  colorscheme railscasts2
+if has('gui_running')
   set ts=2 sw=2 et
+  colorscheme railscasts2
 
-  " Custom Menlo font for Powerline
-  " https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
-  set guifont=Menlo\ for\ Powerline:h12
-
-  " Hide Toolbar in MacVim
-  if has("gui_running")
-    set guioptions=egmrt
-  endif
-
-  let g:Powerline_symbols = 'fancy'
+  set guioptions=egmrt
   call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
-  " Use option (alt) as meta key.
-  set macmeta
+  if has('gui_macvim')
+    " Custom Menlo font for Powerline
+    " https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
+    set guifont=Menlo\ for\ Powerline:h12
+
+    " Remove this line if you don't want to install the custom patched font
+    let g:Powerline_symbols = 'fancy'
+    set macmeta
+  endif
+
+  if has('gui_gnome')
+    set guifont=Monospace\ Bold\ 12
+  endif
+
+  if has('gui_win32') || has('gui_win32s')
+    set guifont=Consolas:h12
+    set enc=utf-8
+  endif
+else
+  if $COLORTERM == 'gnome-terminal'
+    set term=gnome-256color
+    colorscheme railscasts2
+  else
+    if $TERM == 'xterm'
+      set term=xterm-256color
+      colorscheme railscasts2
+    else
+      colorscheme default
+    endif
+  endif
 endif
 
 " UI
