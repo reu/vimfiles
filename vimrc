@@ -145,6 +145,7 @@ set hlsearch
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/vendor/ruby/*,*/.bundle/*,*/.sass-cache/*,*/.bin/*
+set wildignore+=*/doc/*,*/.yardoc/*
 
 " Visual
 set showmatch   " Show matching brackets.
