@@ -62,6 +62,7 @@ Bundle 'L9'
 Bundle 'tpope/vim-repeat'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mathml.vim'
+Bundle 'editorconfig/editorconfig-vim'
 
 " Automatically detect file types. (must turn on after Vundle)
 filetype plugin indent on
