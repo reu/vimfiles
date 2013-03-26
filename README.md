@@ -1,5 +1,9 @@
 ![Preview](https://dl.dropbox.com/u/732128/vim-screenshot.png)
 
+# Requirements
+
+* for Ubuntu (tested on 12.04) `sudo apt-get install ncurses-term`
+
 # Instalation
 
 1. `git clone https://github.com/reu/vimfiles ~/.vim`
