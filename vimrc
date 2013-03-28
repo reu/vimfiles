@@ -216,6 +216,7 @@ nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<cr>
 " Ensure max height isn't too large. (for performance)
 let g:ctrlp_max_height = 10
+let g:ctrlp_custom_ignore = '\v[\/](vendor\/ruby|.log|.git|.hg|.svn)$'
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup=1
