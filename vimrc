@@ -56,6 +56,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'groenewege/vim-less'
+Bundle 'rodjek/vim-puppet'
 
 " Libraries
 Bundle 'L9'
