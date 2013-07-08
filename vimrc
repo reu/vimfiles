@@ -52,6 +52,9 @@ Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
 Bundle 'digitaltoad/vim-jade'
 
+" Python
+Bundle 'hdima/python-syntax'
+
 " Other Languages
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hallison/vim-markdown'
@@ -70,6 +73,7 @@ filetype plugin indent on
 
 " turn on syntax highlighting
 syntax on
+filetype indent plugin on
 
 if has('gui_running')
   set ts=2 sw=2 et
@@ -227,3 +231,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#252525 ctermbg=4
 
 " Use tabs for Makefiles
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" Use 4 spaces for python code
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
+" Allow triple quotes in python
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
