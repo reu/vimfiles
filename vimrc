@@ -235,3 +235,5 @@ autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
 " Allow triple quotes in python
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+" Don't show .pyc files in NERDTree
+let NERDTreeIgnore = ['\.pyc$']
