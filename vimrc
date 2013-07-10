@@ -73,7 +73,6 @@ filetype plugin indent on
 
 " turn on syntax highlighting
 syntax on
-filetype indent plugin on
 
 if has('gui_running')
   set ts=2 sw=2 et
