@@ -54,6 +54,7 @@ Bundle 'digitaltoad/vim-jade'
 
 " Python
 Bundle 'hdima/python-syntax'
+Bundle 'Glench/Vim-Jinja2-Syntax'
 
 " Other Languages
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
