@@ -60,6 +60,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'groenewege/vim-less'
+Bundle 'wavded/vim-stylus'
 Bundle 'rodjek/vim-puppet'
 
 " Libraries
