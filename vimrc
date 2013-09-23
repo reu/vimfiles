@@ -1,4 +1,5 @@
 set nocompatible
+set exrc
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
