@@ -30,6 +30,7 @@ Bundle 'vim-scripts/greplace.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
+Bundle 'mattn/emmet-vim'
 
 " Snippets
 Bundle 'garbas/vim-snipmate'
