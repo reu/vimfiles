@@ -59,6 +59,7 @@ Bundle 'hdima/python-syntax'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 
 " Other Languages
+Bundle 'othree/html5.vim'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'groenewege/vim-less'
