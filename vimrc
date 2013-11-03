@@ -228,7 +228,7 @@ let g:ctrlp_max_height = 10
 let g:ctrlp_custom_ignore = '\v[\/](vendor\/ruby|.log|.git|.hg|.svn)$'
 
 " Indent Guides
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=0
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#252525 ctermbg=4
