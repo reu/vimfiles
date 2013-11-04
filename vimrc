@@ -34,7 +34,6 @@ Bundle 'mattn/emmet-vim'
 
 " Snippets
 Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 
 " Language Additions
