@@ -65,6 +65,7 @@ Bundle 'hallison/vim-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'rodjek/vim-puppet'
+Bundle 'derekwyatt/vim-scala'
 
 " Libraries
 Bundle 'L9'
