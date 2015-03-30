@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdtree'
 " UI Additions
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Rykka/colorv.vim'
+Bundle 'chriskempson/base16-vim'
 
 " Commands
 Bundle 'scrooloose/nerdcommenter'
@@ -82,7 +83,7 @@ syntax on
 
 if has('gui_running')
   set ts=2 sw=2 et
-  colorscheme railscasts2
+  colorscheme base16-railscasts
 
   set guioptions=egmrt
   call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
@@ -108,11 +109,11 @@ if has('gui_running')
 else
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
-    colorscheme railscasts2
+    colorscheme base16-railscasts
   else
     if $TERM == 'xterm'
       set term=xterm-256color
-      colorscheme railscasts2
+      colorscheme base16-railscasts
     else
       colorscheme default
     endif
