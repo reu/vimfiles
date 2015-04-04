@@ -14,7 +14,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 
 " UI Additions
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'Rykka/colorv.vim'
 Bundle 'chriskempson/base16-vim'
 
@@ -86,15 +86,11 @@ if has('gui_running')
   colorscheme base16-railscasts
 
   set guioptions=egmrt
-  call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
   if has('gui_macvim')
     " Custom Menlo font for Powerline
     " https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
     set guifont=Menlo\ for\ Powerline:h12
-
-    " Remove this line if you don't want to install the custom patched font
-    let g:Powerline_symbols = 'fancy'
     set macmeta
   endif
 
