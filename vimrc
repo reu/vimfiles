@@ -67,6 +67,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'rodjek/vim-puppet'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'chase/vim-ansible-yaml'
 
 " Libraries
 Bundle 'L9'
