@@ -44,6 +44,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'slim-template/vim-slim'
 Bundle 'nanki/treetop.vim'
+Bundle 'zah/nim.vim'
 
 " JavaScript
 Bundle 'pangloss/vim-javascript'
