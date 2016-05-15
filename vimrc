@@ -50,6 +50,7 @@ Bundle 'zah/nim.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
+Bundle 'mxw/vim-jsx'
 
 " Python
 Bundle 'hdima/python-syntax'
