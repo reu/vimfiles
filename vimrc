@@ -49,9 +49,6 @@ Bundle 'nanki/treetop.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
-Bundle 'itspriddle/vim-jquery'
-Bundle 'nono/vim-handlebars'
-Bundle 'digitaltoad/vim-jade'
 
 " Python
 Bundle 'hdima/python-syntax'
