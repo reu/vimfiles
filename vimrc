@@ -23,7 +23,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mileszs/ack.vim'
-Bundle 'itspriddle/vim-stripper'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'gorkunov/smartpairs.vim'
 
