@@ -26,7 +26,8 @@ Bundle 'gorkunov/smartpairs.vim'
 
 " Automatic Helpers
 Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/syntastic'
+Bundle 'w0rp/ale'
+Bundle 'Shougo/vimproc'
 Bundle 'ervandew/supertab'
 Bundle 'mattn/emmet-vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -226,3 +227,6 @@ autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 " Don't show .pyc files in NERDTree
 let NERDTreeIgnore = ['\.pyc$']
+
+" Integrate ALE with Airline
+let g:airline#extensions#ale#enabled = 1
