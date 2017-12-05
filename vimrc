@@ -221,3 +221,6 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " Integrate ALE with Airline
 let g:airline#extensions#ale#enabled = 1
+
+" Enable Flow typechecking
+let g:javascript_plugin_flow = 1
