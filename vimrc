@@ -83,12 +83,7 @@ if has('gui_running')
 
   set guioptions=egmrt
 
-  if has('gui_macvim')
-    " Custom Menlo font for Powerline
-    " https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
-    set guifont=Menlo\ for\ Powerline:h12
-    set macmeta
-  endif
+  set guifont=Menlo:h12
 
   if has('gui_gnome')
     set guifont=Monospace\ Bold\ 12
