@@ -9,7 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Navigation
-Bundle 'ZoomWin'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 
@@ -22,7 +21,6 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
-Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'gorkunov/smartpairs.vim'
 
