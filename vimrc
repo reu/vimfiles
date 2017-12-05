@@ -46,7 +46,8 @@ Bundle 'zah/nim.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
-Bundle 'mxw/vim-jsx'
+Bundle 'maxmellon/vim-jsx-pretty'
+Bundle 'flowtype/vim-flow'
 
 " Python
 Bundle 'hdima/python-syntax'
