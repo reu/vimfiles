@@ -3,78 +3,80 @@ set exrc
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Navigation
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 
 " UI Additions
-Bundle 'vim-airline/vim-airline'
-Bundle 'Rykka/colorv.vim'
-Bundle 'chriskempson/base16-vim'
-Bundle 'drewtempelmeyer/palenight.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'Rykka/colorv.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'drewtempelmeyer/palenight.vim'
 
 " Commands
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/greplace.vim'
-Bundle 'gorkunov/smartpairs.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/greplace.vim'
+Plugin 'gorkunov/smartpairs.vim'
 
 " Automatic Helpers
-Bundle 'Raimondi/delimitMate'
-Bundle 'w0rp/ale'
-Bundle 'Shougo/vimproc'
-Bundle 'ervandew/supertab'
-Bundle 'mattn/emmet-vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
+Plugin 'Raimondi/delimitMate'
+Plugin 'w0rp/ale'
+Plugin 'Shougo/vimproc'
+Plugin 'ervandew/supertab'
+Plugin 'mattn/emmet-vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 
 " Language Additions
 " Ruby
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'slim-template/vim-slim'
-Bundle 'nanki/treetop.vim'
-Bundle 'zah/nim.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'slim-template/vim-slim'
+Plugin 'nanki/treetop.vim'
+Plugin 'zah/nim.vim'
 
 " JavaScript
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'leshill/vim-json'
-Bundle 'maxmellon/vim-jsx-pretty'
-Bundle 'flowtype/vim-flow'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'leshill/vim-json'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'flowtype/vim-flow'
 
 " Python
-Bundle 'hdima/python-syntax'
-Bundle 'Glench/Vim-Jinja2-Syntax'
+Plugin 'hdima/python-syntax'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 
 " Haskell
-Bundle 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/ghcmod-vim'
 
 " Other Languages
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'othree/html5.vim'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'hallison/vim-markdown'
-Bundle 'groenewege/vim-less'
-Bundle 'wavded/vim-stylus'
-Bundle 'rodjek/vim-puppet'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'chase/vim-ansible-yaml'
-Bundle 'jparise/vim-graphql'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'othree/html5.vim'
+Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plugin 'hallison/vim-markdown'
+Plugin 'groenewege/vim-less'
+Plugin 'wavded/vim-stylus'
+Plugin 'rodjek/vim-puppet'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'jparise/vim-graphql'
 
 " Libraries
-Bundle 'L9'
-Bundle 'tpope/vim-repeat'
-Bundle 'tomtom/tlib_vim'
-Bundle 'mathml.vim'
-Bundle 'editorconfig/editorconfig-vim'
+Plugin 'L9'
+Plugin 'tpope/vim-repeat'
+Plugin 'tomtom/tlib_vim'
+Plugin 'mathml.vim'
+Plugin 'editorconfig/editorconfig-vim'
+
+call vundle#end()
 
 " Automatically detect file types. (must turn on after Vundle)
 filetype plugin indent on
