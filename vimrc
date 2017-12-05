@@ -13,7 +13,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 
 " UI Additions
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
 Bundle 'Rykka/colorv.vim'
 Bundle 'chriskempson/base16-vim'
 
