@@ -54,6 +54,9 @@ Bundle 'flowtype/vim-flow'
 Bundle 'hdima/python-syntax'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 
+" Haskell
+Bundle 'eagletmt/ghcmod-vim'
+
 " Other Languages
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'othree/html5.vim'
@@ -222,6 +225,11 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " Integrate ALE with Airline
 let g:airline#extensions#ale#enabled = 1
+
+" GHC helpers
+nnoremap <Leader>ht :GhcModType<cr>
+nnoremap <Leader>htc :GhcModTypeClear<cr>
+autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
 
 " Enable Flow typechecking
 let g:javascript_plugin_flow = 1
