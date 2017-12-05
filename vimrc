@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'vim-airline/vim-airline'
 Bundle 'Rykka/colorv.vim'
 Bundle 'chriskempson/base16-vim'
+Bundle 'drewtempelmeyer/palenight.vim'
 
 " Commands
 Bundle 'scrooloose/nerdcommenter'
@@ -80,7 +81,7 @@ syntax on
 
 if has('gui_running')
   set ts=2 sw=2 et
-  colorscheme base16-railscasts
+  colorscheme palenight
 
   set guioptions=egmrt
 
@@ -97,11 +98,11 @@ if has('gui_running')
 else
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
-    colorscheme base16-railscasts
+    colorscheme palenight
   else
     if $TERM == 'xterm'
       set term=xterm-256color
-      colorscheme base16-railscasts
+      colorscheme palenight
     else
       colorscheme default
     endif
