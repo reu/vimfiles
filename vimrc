@@ -224,3 +224,7 @@ let g:airline#extensions#ale#enabled = 1
 
 " Enable Flow typechecking
 let g:javascript_plugin_flow = 1
+
+" Always show de signcolumn, so our buffers doesn't shift on errors
+autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+autocmd FileType tagbar,nerdtree setlocal signcolumn=no
