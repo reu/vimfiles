@@ -23,7 +23,7 @@ Plug 'gorkunov/smartpairs.vim'
 " Automatic Helpers
 Plug 'Raimondi/delimitMate'
 Plug 'w0rp/ale'
-Plug 'Shougo/vimproc'
+Plug 'Shougo/vimproc', { 'do': 'make' }
 Plug 'ervandew/supertab'
 Plug 'mattn/emmet-vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
