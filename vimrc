@@ -87,6 +87,10 @@ if has('gui_running')
 
   set guifont=Menlo:h12
 
+  " Always show de signcolumn, so our buffers doesn't shift on errors
+  autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+  autocmd FileType tagbar,nerdtree setlocal signcolumn=no
+
   if has('gui_gnome')
     set guifont=Monospace\ Bold\ 12
   endif
@@ -116,6 +120,7 @@ set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
+set background=dark
 
 " Behaviors
 set autoread           " Automatically reload changes if detected
@@ -175,6 +180,7 @@ set listchars+=precedes:<
 set noerrorbells
 set novisualbell
 set t_vb=
+autocmd! GUIEnter * set vb t_vb=
 
 " Mouse
 set mousehide  " Hide mouse after chars typed
@@ -232,7 +238,3 @@ autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursor
 
 " Enable Flow typechecking
 let g:javascript_plugin_flow = 1
-
-" Always show de signcolumn, so our buffers doesn't shift on errors
-autocmd BufRead,BufNewFile * setlocal signcolumn=yes
-autocmd FileType tagbar,nerdtree setlocal signcolumn=no
