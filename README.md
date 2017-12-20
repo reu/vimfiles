@@ -7,7 +7,6 @@
 # Instalation
 
 1. `git clone https://github.com/reu/vimfiles ~/.vim`
-2. `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
-3. `echo "source ~/.vim/vimrc" > ~/.vimrc`
-4. Run Vim and type `:BundleInstall`
-5. Compile vimproc: `cd ~/.vim/bundle/vimproc && make`
+2. `echo "source ~/.vim/vimrc" > ~/.vimrc`
+3. Run Vim and type `:PlugInstall`
+4. Compile vimproc: `cd ~/.vim/plugged/vimproc && make`

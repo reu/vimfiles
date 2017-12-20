@@ -2,81 +2,76 @@ set nocompatible
 set exrc
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
 " Navigation
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " UI Additions
-Plugin 'vim-airline/vim-airline'
-Plugin 'Rykka/colorv.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'drewtempelmeyer/palenight.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Commands
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'skwp/greplace.vim'
-Plugin 'gorkunov/smartpairs.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'skwp/greplace.vim'
+Plug 'gorkunov/smartpairs.vim'
 
 " Automatic Helpers
-Plugin 'Raimondi/delimitMate'
-Plugin 'w0rp/ale'
-Plugin 'Shougo/vimproc'
-Plugin 'ervandew/supertab'
-Plugin 'mattn/emmet-vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'w0rp/ale'
+Plug 'Shougo/vimproc'
+Plug 'ervandew/supertab'
+Plug 'mattn/emmet-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'editorconfig/editorconfig-vim'
 
 " Language Additions
 " Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'slim-template/vim-slim'
-Plugin 'nanki/treetop.vim'
-Plugin 'zah/nim.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml', { 'for': 'haml' }
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'nanki/treetop.vim', { 'for': 'treetop' }
 
 " JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'leshill/vim-json'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'flowtype/vim-flow'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
+Plug 'leshill/vim-json'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'flowtype/vim-flow'
 
 " Python
-Plugin 'hdima/python-syntax'
-Plugin 'Glench/Vim-Jinja2-Syntax'
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2' }
 
 " Haskell
-Plugin 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 
 " Other Languages
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'othree/html5.vim'
-Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Plugin 'hallison/vim-markdown'
-Plugin 'groenewege/vim-less'
-Plugin 'wavded/vim-stylus'
-Plugin 'rodjek/vim-puppet'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'jparise/vim-graphql'
-Plugin 'vim-scripts/mathml.vim'
+Plug 'jnwhiteh/vim-golang', { 'for':  'go' }
+Plug 'othree/html5.vim'
+Plug 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plug 'hallison/vim-markdown'
+Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'chase/vim-ansible-yaml'
+Plug 'jparise/vim-graphql'
+Plug 'vim-scripts/mathml.vim', { 'for': 'mathml' }
+Plug 'zah/nim.vim', { 'for': 'nim' }
 
 " Libraries
-Plugin 'vim-scripts/L9'
-Plugin 'tpope/vim-repeat'
-Plugin 'tomtom/tlib_vim'
+Plug 'vim-scripts/L9'
+Plug 'tpope/vim-repeat'
+Plug 'tomtom/tlib_vim'
 
-call vundle#end()
+call plug#end()
 
 " Automatically detect file types. (must turn on after Vundle)
 filetype plugin indent on
