@@ -22,7 +22,7 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/greplace.vim'
+Plugin 'skwp/greplace.vim'
 Plugin 'gorkunov/smartpairs.vim'
 
 " Automatic Helpers
@@ -32,6 +32,7 @@ Plugin 'Shougo/vimproc'
 Plugin 'ervandew/supertab'
 Plugin 'mattn/emmet-vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Language Additions
 " Ruby
@@ -68,13 +69,12 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'jparise/vim-graphql'
+Plugin 'vim-scripts/mathml.vim'
 
 " Libraries
-Plugin 'L9'
+Plugin 'vim-scripts/L9'
 Plugin 'tpope/vim-repeat'
 Plugin 'tomtom/tlib_vim'
-Plugin 'mathml.vim'
-Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 
