@@ -29,6 +29,18 @@ Plug 'mattn/emmet-vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'editorconfig/editorconfig-vim'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'wokalski/autocomplete-flow'
+  Plug 'eagletmt/neco-ghc'
+elseif has('python3')
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'eagletmt/neco-ghc'
+  Plug 'wokalski/autocomplete-flow'
+endif
+
 " Language Additions
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -222,6 +234,13 @@ let g:ctrlp_custom_ignore = '\v[\/](vendor\/ruby|node_modules|.log|.git|.hg|.svn
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_use_caching = 0
 
+if has('nvim') || has('python3')
+  " Deoplete
+  let g:deoplete#enable_at_startup = 1
+  " Deoplete supertab integration is quite strange by default...
+  let g:SuperTabDefaultCompletionType = "<c-n>"
+endif
+
 " Use tabs for Makefiles
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
 
@@ -242,3 +261,7 @@ autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursor
 
 " Enable Flow typechecking
 let g:javascript_plugin_flow = 1
+
+" Configure external editorconfig
+let g:EditorConfig_core_mode = 'external_command'
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
