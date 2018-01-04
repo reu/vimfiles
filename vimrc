@@ -80,16 +80,8 @@ filetype plugin indent on
 syntax on
 
 if has('gui_running')
-  set ts=2 sw=2 et
-  colorscheme palenight
-
   set guioptions=egmrt
-
   set guifont=Menlo:h12
-
-  " Always show de signcolumn, so our buffers doesn't shift on errors
-  autocmd BufRead,BufNewFile * setlocal signcolumn=yes
-  autocmd FileType tagbar,nerdtree setlocal signcolumn=no
 
   if has('gui_gnome')
     set guifont=Monospace\ Bold\ 12
@@ -99,6 +91,8 @@ if has('gui_running')
     set guifont=Consolas:h12
     set enc=utf-8
   endif
+elseif has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 else
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
@@ -111,6 +105,16 @@ else
       colorscheme default
     endif
   endif
+endif
+
+if has('gui_running') || has('nvim')
+  set ts=2 sw=2 et
+
+  colorscheme palenight
+
+  " Always show de signcolumn, so our buffers doesn't shift on errors
+  autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+  autocmd FileType tagbar,nerdtree setlocal signcolumn=no
 endif
 
 " UI
