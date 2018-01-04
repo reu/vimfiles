@@ -56,13 +56,13 @@ Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'jnwhiteh/vim-golang', { 'for':  'go' }
 Plug 'othree/html5.vim'
 Plug 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Plug 'hallison/vim-markdown'
+Plug 'hallison/vim-markdown', { 'for': 'markdown' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'chase/vim-ansible-yaml'
-Plug 'jparise/vim-graphql'
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 Plug 'vim-scripts/mathml.vim', { 'for': 'mathml' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
 
