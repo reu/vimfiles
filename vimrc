@@ -12,6 +12,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'chriskempson/base16-vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kaicataldo/material.vim'
+Plug 'luochen1990/rainbow'
 
 " Commands
 Plug 'scrooloose/nerdcommenter'
@@ -122,7 +124,9 @@ endif
 if has('gui_running') || has('nvim')
   set ts=2 sw=2 et
 
-  colorscheme palenight
+  let g:material_theme_style = 'palenight'
+  let g:airline_theme = 'material'
+  colorscheme material
 
   " Always show de signcolumn, so our buffers doesn't shift on errors
   autocmd BufRead,BufNewFile * setlocal signcolumn=yes
@@ -265,3 +269,6 @@ let g:javascript_plugin_flow = 1
 " Configure external editorconfig
 let g:EditorConfig_core_mode = 'external_command'
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+
+" Rainbow
+let g:rainbow_active = 1
