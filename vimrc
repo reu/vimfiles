@@ -14,11 +14,15 @@ Plug 'chriskempson/base16-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kaicataldo/material.vim'
 Plug 'luochen1990/rainbow'
+Plug 'mhinz/vim-startify'
+Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
 
 " Commands
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
 Plug 'skwp/greplace.vim'
 Plug 'gorkunov/smartpairs.vim'
 
@@ -34,7 +38,7 @@ Plug 'editorconfig/editorconfig-vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'wokalski/autocomplete-flow'
-  Plug 'eagletmt/neco-ghc'
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 elseif has('python3')
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -64,7 +68,11 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2' }
 
 " Haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+
+" Purescript
+Plug 'raichoo/purescript-vim'
 
 " Other Languages
 Plug 'jnwhiteh/vim-golang', { 'for':  'go' }
@@ -141,6 +149,7 @@ set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
 set background=dark
+set updatetime=300
 
 " Behaviors
 set autoread           " Automatically reload changes if detected
@@ -153,6 +162,7 @@ set timeoutlen=350     " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
 set formatoptions=crql
 set iskeyword+=$,@     " Add extra characters that are valid parts of variables
+set completeopt-=preview "Disables preview
 
 " Text Format
 set tabstop=2
@@ -226,6 +236,8 @@ map <C-l> <C-w>l
 " NERDTree
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+" Don't show .pyc files
+let NERDTreeIgnore = ['\.pyc$']
 
 " CtrlP
 " map to CtrlP finder
@@ -241,27 +253,33 @@ let g:ctrlp_use_caching = 0
 if has('nvim') || has('python3')
   " Deoplete
   let g:deoplete#enable_at_startup = 1
+  let deoplete#tag#cache_limit_size = 5000000
   " Deoplete supertab integration is quite strange by default...
   let g:SuperTabDefaultCompletionType = "<c-n>"
 endif
 
 " Use tabs for Makefiles
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
-
 " Use 4 spaces for python code
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
 " Allow triple quotes in python
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-" Don't show .pyc files in NERDTree
-let NERDTreeIgnore = ['\.pyc$']
 
-" Integrate ALE with Airline
-let g:airline#extensions#ale#enabled = 1
-
-" GHC helpers
+" Haskell
 nnoremap <Leader>ht :GhcModType<cr>
 nnoremap <Leader>htc :GhcModTypeClear<cr>
 autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
+
+let g:necoghc_use_stack = 1
+
+let g:haskell_indent_disable = 1          " disables indentation
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " Enable Flow typechecking
 let g:javascript_plugin_flow = 1
@@ -270,5 +288,31 @@ let g:javascript_plugin_flow = 1
 let g:EditorConfig_core_mode = 'external_command'
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 
+" Ale
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_highlights = 0
+
+let g:ale_linters = {
+"\  'haskell': ['stack-build', 'hlint', 'hdevtools'],
+\  'javascript': ['eslint', 'flow'],
+\  'ruby': ['rubocop', 'ruby'],
+\}
+
 " Rainbow
 let g:rainbow_active = 1
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Language Server
+let g:LanguageClient_serverCommands = {
+\ 'haskell': ['hie', '--lsp'],
+\ 'javascript': ['flow-language-server', '--stdio'],
+\ }
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
