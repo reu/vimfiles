@@ -50,7 +50,7 @@ endif
 " Language Additions
 " Ruby
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-haml', { 'for': 'haml' }
+Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -77,7 +77,6 @@ Plug 'raichoo/purescript-vim'
 " Other Languages
 Plug 'jnwhiteh/vim-golang', { 'for':  'go' }
 Plug 'othree/html5.vim'
-Plug 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Plug 'hallison/vim-markdown', { 'for': 'markdown' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
