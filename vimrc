@@ -299,12 +299,6 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_highlights = 0
 
-let g:ale_linters = {
-"\  'haskell': ['stack-build', 'hlint', 'hdevtools'],
-\  'javascript': ['eslint', 'flow'],
-\  'ruby': ['rubocop', 'ruby'],
-\}
-
 " Rainbow
 let g:rainbow_active = 1
 
@@ -315,11 +309,24 @@ nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-" Language Server
-let g:LanguageClient_serverCommands = {
-\ 'haskell': ['hie', '--lsp'],
-\ 'javascript': ['flow-language-server', '--stdio'],
-\ }
+if has('nvim')
+  let g:ale_linters = {
+  \  'javascript': ['eslint', 'flow'],
+  \  'ruby': ['rubocop', 'ruby'],
+  \}
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  " Language Server
+  let g:LanguageClient_serverCommands = {
+  \ 'haskell': ['hie', '--lsp'],
+  \ 'javascript': ['flow-language-server', '--stdio'],
+  \ }
+
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+else
+  let g:ale_linters = {
+  \  'haskell': ['stack-build', 'hlint', 'hdevtools'],
+  \  'javascript': ['eslint', 'flow'],
+  \  'ruby': ['rubocop', 'ruby'],
+  \}
+endif
