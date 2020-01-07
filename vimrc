@@ -4,141 +4,58 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-" Navigation
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-" UI Additions
 Plug 'vim-airline/vim-airline'
-Plug 'chriskempson/base16-vim'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'kaicataldo/material.vim'
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
-
-" Commands
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'skwp/greplace.vim'
 Plug 'gorkunov/smartpairs.vim'
-
-" Automatic Helpers
+Plug 'airblade/vim-rooter'
 Plug 'Raimondi/delimitMate'
 Plug 'w0rp/ale'
-Plug 'Shougo/vimproc', { 'do': 'make' }
-Plug 'ervandew/supertab'
-Plug 'mattn/emmet-vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'editorconfig/editorconfig-vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'wokalski/autocomplete-flow'
-  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-elseif has('python3')
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'eagletmt/neco-ghc'
-  Plug 'wokalski/autocomplete-flow'
-endif
-
-" Language Additions
-" Ruby
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
-Plug 'nanki/treetop.vim', { 'for': 'treetop' }
-
-" JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
-Plug 'leshill/vim-json'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'flowtype/vim-flow'
-
-" Python
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2' }
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-
-" Purescript
-Plug 'raichoo/purescript-vim'
-
-" Other Languages
-Plug 'jnwhiteh/vim-golang', { 'for':  'go' }
-Plug 'othree/html5.vim'
-Plug 'hallison/vim-markdown', { 'for': 'markdown' }
-Plug 'groenewege/vim-less', { 'for': 'less' }
-Plug 'wavded/vim-stylus', { 'for': 'stylus' }
-Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'chase/vim-ansible-yaml'
-Plug 'jparise/vim-graphql', { 'for': 'graphql' }
-Plug 'vim-scripts/mathml.vim', { 'for': 'mathml' }
-Plug 'zah/nim.vim', { 'for': 'nim' }
-
-" Libraries
-Plug 'vim-scripts/L9'
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/vim-jsx-improve'
 Plug 'tpope/vim-repeat'
-Plug 'tomtom/tlib_vim'
 
 call plug#end()
 
-" Automatically detect file types. (must turn on after Vundle)
+" Automatically detect file types. (must turn on after Plug)
 filetype plugin indent on
 
-" turn on syntax highlighting
 syntax on
 
+" Case insentive command autocomplete
+augroup dynamic_smartcase
+  autocmd!
+  autocmd CmdLineEnter : set nosmartcase
+  autocmd CmdLineLeave : set smartcase
+augroup END
+
 if has('gui_running')
+  set ts=2 sw=2 et
   set guioptions=egmrt
   set guifont=Menlo:h12
+endif
 
-  if has('gui_gnome')
-    set guifont=Monospace\ Bold\ 12
-  endif
-
-  if has('gui_win32') || has('gui_win32s')
-    set guifont=Consolas:h12
-    set enc=utf-8
-  endif
-elseif has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if has('gui_running') || has('nvim') || $TERM == 'xterm'
+  colorscheme palenight
 else
-  if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-    colorscheme palenight
-  else
-    if $TERM == 'xterm'
-      set term=xterm-256color
-      colorscheme palenight
-    else
-      colorscheme default
-    endif
-  endif
+  colorscheme default
 endif
 
-if has('gui_running') || has('nvim')
-  set ts=2 sw=2 et
-
-  let g:material_theme_style = 'palenight'
-  let g:airline_theme = 'material'
-  colorscheme material
-
-  " Always show de signcolumn, so our buffers doesn't shift on errors
-  autocmd BufRead,BufNewFile * setlocal signcolumn=yes
-  autocmd FileType tagbar,nerdtree setlocal signcolumn=no
-endif
+" Always show the signcolumn, so our buffers doesn't shift on errors
+autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+autocmd FileType nerdtree setlocal signcolumn=no
 
 " UI
 set ruler          " Ruler on
@@ -148,7 +65,7 @@ set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
 set background=dark
-set updatetime=300
+set updatetime=100
 
 " Behaviors
 set autoread           " Automatically reload changes if detected
@@ -178,20 +95,26 @@ set smartcase  " Non-case sensitive search
 set incsearch
 set hlsearch
 
+" Some language servers have issues with backup files
+set nobackup
+set nowritebackup
+
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/vendor/ruby/*,*/.bundle/*,*/.sass-cache/*,*/.bin/*
 set wildignore+=*/doc/*,*/.yardoc/*
+set wildignore+=*/.idea/*
+set wildignore+=*/node_modules/*
 
 " Visual
 set showmatch   " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
-" Show invisible characters
-set list
+set list " Show invisible characters
+" Don't give |ins-completion-menu| messages
+set shortmess+=c
 
 " Show trailing spaces as dots and carrots for extended lines.
 " From Janus, http://git.io/PLbAlw
-
 " Reset the listchars
 set listchars=""
 " a tab should display as "  ", trailing whitespace as "."
@@ -219,89 +142,79 @@ set mouse=a  " Mouse in all modes
 set complete=.,w,b,u,U
 set backspace=indent,eol,start
 
-" add some line space for easy reading
+" Adds some line space for easy reading
 set linespace=4
 
-" make <c-l> clear the highlight as well as redraw
+" Make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
-" key mapping for window navigation
+" Key mappings for split navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" key mapping for moving lines
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+" --------------------------------------------
+" Custom tabs spacing
+autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
+autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
 
+" --------------------------------------------
+" Polyglot
+" We want to disable polyglot javascript and jsx since we are using neoclide/vim-jsx-improve
+let g:polyglot_disabled = ['javascript', 'jsx']
+
+" --------------------------------------------
+" Delitmate
+" Allow triple quotes in python
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+
+" --------------------------------------------
 " NERDTree
 silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
-" Don't show .pyc files
 let NERDTreeIgnore = ['\.pyc$']
 
+" --------------------------------------------
 " CtrlP
-" map to CtrlP finder
 nnoremap <leader>t :CtrlP<CR>
-" map to CtrlP buffer explorer
 nnoremap <leader>b :CtrlPBuffer<cr>
-" Ensure max height isn't too large. (for performance)
 let g:ctrlp_max_height = 10
 let g:ctrlp_custom_ignore = '\v[\/](vendor\/ruby|node_modules|.log|.git|.hg|.svn)$'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_use_caching = 0
 
-if has('nvim') || has('python3')
-  " Deoplete
-  let g:deoplete#enable_at_startup = 1
-  let deoplete#tag#cache_limit_size = 5000000
-  " Deoplete supertab integration is quite strange by default...
-  let g:SuperTabDefaultCompletionType = "<c-n>"
-endif
-
-" Use tabs for Makefiles
-autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
-" Use 4 spaces for python code
-autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
-" Allow triple quotes in python
-autocmd FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-
+" --------------------------------------------
 " Haskell
-nnoremap <Leader>ht :GhcModType<cr>
-nnoremap <Leader>htc :GhcModTypeClear<cr>
-autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
-
-let g:necoghc_use_stack = 1
-
 let g:haskell_indent_disable = 1          " disables indentation
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+let g:haskell_enable_quantification = 1   " enables highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " enables highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " enables highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " enables highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " enables highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " enables highlighting of `static`
+let g:haskell_backpack = 1                " enables highlighting of backpack keywords
 
-" Enable Flow typechecking
-let g:javascript_plugin_flow = 1
+" --------------------------------------------
+" Editor Config
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" Configure external editorconfig
-let g:EditorConfig_core_mode = 'external_command'
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-
+" --------------------------------------------
 " Ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_highlights = 0
+let g:ale_linters = {
+\  'javascript': ['eslint', 'flow'],
+\  'json': ['fixjson'],
+\  'ruby': ['rubocop', 'ruby'],
+\}
 
+" --------------------------------------------
 " Rainbow
 let g:rainbow_active = 1
 
+" --------------------------------------------
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
@@ -309,24 +222,107 @@ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-if has('nvim')
-  let g:ale_linters = {
-  \  'javascript': ['eslint', 'flow'],
-  \  'ruby': ['rubocop', 'ruby'],
-  \}
+" --------------------------------------------
+" CoC
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  " Language Server
-  let g:LanguageClient_serverCommands = {
-  \ 'haskell': ['hie', '--lsp'],
-  \ 'javascript': ['flow-language-server', '--stdio'],
-  \ }
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-else
-  let g:ale_linters = {
-  \  'haskell': ['stack-build', 'hlint', 'hdevtools'],
-  \  'javascript': ['eslint', 'flow'],
-  \  'ruby': ['rubocop', 'ruby'],
-  \}
-endif
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
