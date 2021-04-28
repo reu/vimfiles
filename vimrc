@@ -27,6 +27,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'tpope/vim-repeat'
 Plug 'rust-lang/rust.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'graphql'] }
 
 call plug#end()
 
@@ -331,3 +332,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " --------------------------------------------
 " Rust
 autocmd FileType rust silent! nnoremap <silent> <Leader>f :RustFmt<CR>
+
+" --------------------------------------------
+" Prettier
+autocmd FileType javascript nmap <Leader>f <Plug>(Prettier)
+autocmd FileType graphql nmap <Leader>f <Plug>(Prettier)
