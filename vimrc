@@ -26,6 +26,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'tpope/vim-repeat'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -326,3 +327,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" --------------------------------------------
+" Rust
+autocmd FileType rust silent! nnoremap <silent> <Leader>f :RustFmt<CR>
