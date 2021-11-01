@@ -49,7 +49,7 @@ if has('gui_running')
   set guifont=Menlo:h12
 endif
 
-if has('gui_running') || has('nvim') || $TERM == 'xterm'
+if has('gui_running') || has('nvim') || $TERM == 'xterm' || $TERM == 'xterm-256color'
   colorscheme palenight
 else
   colorscheme default
@@ -165,8 +165,9 @@ autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
 
 " --------------------------------------------
 " Polyglot
-" We want to disable polyglot javascript and jsx since we are using neoclide/vim-jsx-improve
-let g:polyglot_disabled = ['javascript', 'jsx']
+let g:polyglot_disabled = []
+" Enables Flow syntax highlight
+let g:javascript_plugin_flow = 1
 
 " --------------------------------------------
 " Delitmate
@@ -207,7 +208,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_highlights = 0
 let g:ale_linters = {
-\  'javascript': ['eslint', 'flow'],
+\  'javascript': ['eslint'],
 \  'json': ['fixjson'],
 \  'ruby': ['rubocop', 'ruby'],
 \}
@@ -337,3 +338,7 @@ autocmd FileType rust silent! nnoremap <silent> <Leader>f :RustFmt<CR>
 " Prettier
 autocmd FileType javascript nmap <Leader>f <Plug>(Prettier)
 autocmd FileType graphql nmap <Leader>f <Plug>(Prettier)
+
+" --------------------------------------------
+" Vim rooter
+let g:rooter_patterns = ['Gemfile', 'package.json', 'Cargo.toml', 'Makefile', '.git']
